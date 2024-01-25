@@ -6,3 +6,5 @@ celery
 ruff
 mypy
 pysnooper
+channels
+daphne
