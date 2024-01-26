@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'daphne',
     'channels',
     'rest_framework',
-    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
 
     # django apps
     'django.contrib.admin',
@@ -137,6 +137,16 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+ASGI_APPLICATION = 'config.asgi.application'
+
+
 # Celery and redis config
 CELERY_BROKER_URL = "redis://redis:6379"
 CELERY_RESULT_BACKEND = "redis://redis:6379"
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
